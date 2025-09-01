@@ -1,0 +1,108 @@
+/* 
+  GLOBAL COLOR CONFIGURATION
+  Change these values to instantly update the entire website's color scheme
+*/
+
+:root {
+  /* Primary Brand Colors - Dark Night Mode Theme */
+  --primary-color: #60a5fa;        /* Light blue - buttons, links, accents */
+  --primary-dark: #3b82f6;         /* Medium blue - hover states */
+  --primary-light: #93c5fd;        /* Very light blue - subtle accents */
+  
+  /* Secondary Colors */
+  --secondary-color: #34d399;      /* Light green - WhatsApp, success messages */
+  --secondary-dark: #10b981;       /* Medium green - hover states */
+  
+  /* Background Colors - DARK THEME */
+  --bg-primary: #111827;           /* Very dark gray/black main background */
+  --bg-secondary: #1f2937;         /* Dark gray section backgrounds */
+  --bg-dark: #000000;             /* Pure black footer, darkest sections */
+  --bg-gradient-start: #1f2937;    /* Dark gray gradient start */
+  --bg-gradient-end: #111827;      /* Very dark gray gradient end */
+  
+  /* Text Colors - LIGHT ON DARK */
+  --text-primary: #f9fafb;         /* Very light gray main text */
+  --text-secondary: #d1d5db;       /* Light gray secondary text */
+  --text-light: #9ca3af;          /* Medium gray text, placeholders */
+  --text-white: #ffffff;          /* Pure white text */
+  --text-heading: #ffffff;        /* White headings */
+  --text-accent: #f3f4f6;         /* Light gray accent headings */
+  
+  /* Border and Shadow Colors */
+  --border-light: #374151;        /* Dark gray input borders */
+  --border-medium: #4b5563;       /* Medium gray card borders */
+  --shadow-light: rgba(0, 0, 0, 0.3);    /* Dark shadows */
+  --shadow-medium: rgba(0, 0, 0, 0.5);   /* Darker shadows */
+  --shadow-dark: rgba(0, 0, 0, 0.8);     /* Very dark shadows */
+  
+  /* Status Colors - Dark Theme */
+  --success-bg: #064e3b;          /* Dark green success background */
+  --success-text: #6ee7b7;        /* Light green success text */
+  --success-border: #047857;      /* Medium green success border */
+  --error-bg: #7f1d1d;           /* Dark red error background */
+  --error-text: #fca5a5;         /* Light red error text */
+  --error-border: #dc2626;       /* Medium red error border */
+  
+  /* Interactive States */
+  --hover-overlay: rgba(255, 255, 255, 0.1);  /* Light hover overlay */
+  --focus-color: #60a5fa;         /* Light blue focus outline */
+}
+
+/* 
+  DARK MODE VARIABLES (Optional - uncomment to enable)
+  Uncomment these and add a dark mode toggle to use dark theme
+*/
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-dark: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-heading: #ffffff;
+    --border-light: #444444;
+    --border-medium: #555555;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-medium: rgba(255, 255, 255, 0.15);
+  }
+}
+*/
+
+/* 
+  ALTERNATIVE COLOR SCHEMES
+  Replace the values in :root above with any of these preset schemes:
+*/
+
+/* 
+PROFESSIONAL BLUE SCHEME:
+  --primary-color: #1e3a8a;
+  --primary-dark: #1e40af;
+  --bg-gradient-start: #3b82f6;
+  --bg-gradient-end: #1d4ed8;
+*/
+
+/* 
+GREEN FINANCE SCHEME:
+  --primary-color: #059669;
+  --primary-dark: #047857;
+  --bg-gradient-start: #10b981;
+  --bg-gradient-end: #059669;
+*/
+
+/* 
+LUXURY PURPLE SCHEME:
+  --primary-color: #7c3aed;
+  --primary-dark: #6d28d9;
+  --bg-gradient-start: #8b5cf6;
+  --bg-gradient-end: #7c3aed;
+*/
+
+/* 
+PROFESSIONAL GRAY SCHEME:
+  --primary-color: #374151;
+  --primary-dark: #1f2937;
+  --bg-gradient-start: #6b7280;
+  --bg-gradient-end: #374151;
+*/

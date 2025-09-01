@@ -1,0 +1,155 @@
+.about {
+  padding: 40px 0;
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* About Hero Section */
+.about-hero {
+  padding: 40px 0 60px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image {
+  text-align: center;
+}
+
+.profile-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #3498db;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-text h1 {
+  font-size: 2.5rem;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.about-text h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Mission and Vision */
+.mission-vision {
+  padding: 60px 0;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  margin: 40px 0;
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.mission, .vision {
+  background: var(--bg-primary);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.mission h3, .vision h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.mission p, .vision p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Credentials Section */
+.credentials {
+  padding: 40px 0;
+}
+
+.credentials h3 {
+  font-size: 2rem;
+  color: var(--text-heading);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.credential-item {
+  text-align: center;
+  padding: 25px;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow-light);
+  transition: transform 0.3s ease;
+}
+
+.credential-item:hover {
+  transform: translateY(-5px);
+}
+
+.credential-item h4 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.credential-item p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text h1 {
+    font-size: 2rem;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+}
