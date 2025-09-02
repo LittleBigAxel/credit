@@ -1,43 +1,43 @@
-import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
-import './Contact.css';
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('');
+    setSubmitStatus("");
 
     try {
       // Replace these with your actual EmailJS service details
       await emailjs.send(
-        'service_memffdn',
-        'template_onuljlj',
+        "service_memffdn",
+        "template_onuljlj",
         formData,
-        'LBl115UUEadrH1HiL'
+        "LBl115UUEadrH1HiL"
       );
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
-      console.error('Error sending email:', error);
-      setSubmitStatus('error');
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -99,27 +99,27 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your credit situation and how I can help..."
-                  required
-                ></textarea>
+                  required></textarea>
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn btn-primary"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
 
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <p className="form-message success">
-                  Message sent successfully! I'll get back to you within 24 hours.
+                  Message sent successfully! I'll get back to you within 24
+                  hours.
                 </p>
               )}
 
-              {submitStatus === 'error' && (
+              {submitStatus === "error" && (
                 <p className="form-message error">
-                  There was an error sending your message. Please try again or contact me directly.
+                  There was an error sending your message. Please try again or
+                  contact me directly.
                 </p>
               )}
             </form>
@@ -127,17 +127,16 @@ const Contact = () => {
 
           <div className="contact-info-section">
             <h2>Get In Touch</h2>
-            
+
             <div className="contact-methods">
               <div className="contact-method">
                 <h3>WhatsApp</h3>
                 <p>For quick questions and consultations</p>
-                <a 
-                  href="https://wa.me/1234567890" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/13479255033"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                >
+                  className="btn btn-secondary">
                   Message on WhatsApp
                 </a>
               </div>
@@ -145,7 +144,9 @@ const Contact = () => {
               <div className="contact-method">
                 <h3>Email</h3>
                 <p>For detailed inquiries</p>
-                <a href="mailto:contact@creditrepair.com" className="contact-link">
+                <a
+                  href="mailto:contact@creditrepair.com"
+                  className="contact-link">
                   contact@creditrepair.com
                 </a>
               </div>
@@ -154,16 +155,26 @@ const Contact = () => {
                 <h3>Social Media</h3>
                 <p>Follow me for credit tips and updates</p>
                 <div className="social-links">
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Facebook
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Instagram
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
                 </div>
               </div>
-            </div>
-
-            <div className="response-time">
-              <h3>Response Time</h3>
-              <p>I typically respond to all inquiries within 24 hours during business days.</p>
             </div>
           </div>
         </div>
@@ -171,10 +182,6 @@ const Contact = () => {
         <section className="map-section">
           <h2>Service Area</h2>
           <p>Providing credit repair services nationwide</p>
-          {/* You can add Google Maps integration here if needed */}
-          <div className="map-placeholder">
-            <p>Serving clients across the United States</p>
-          </div>
         </section>
       </div>
     </div>
