@@ -5,9 +5,9 @@
 
 :root {
   /* Primary Brand Colors - Dark Night Mode Theme */
-  --primary-color: #60a5fa;        /* Light blue - buttons, links, accents */
-  --primary-dark: #3b82f6;         /* Medium blue - hover states */
-  --primary-light: #93c5fd;        /* Very light blue - subtle accents */
+  --primary-color: #ef4444;        /* Light red - buttons, links, accents */
+  --primary-dark: #dc2626;         /* Medium red - hover states */
+  --primary-light: #f87171;        /* Very light red - subtle accents */
   
   /* Secondary Colors */
   --secondary-color: #34d399;      /* Light green - WhatsApp, success messages */
@@ -45,7 +45,12 @@
   
   /* Interactive States */
   --hover-overlay: rgba(255, 255, 255, 0.1);  /* Light hover overlay */
-  --focus-color: #60a5fa;         /* Light blue focus outline */
+  --focus-color: #ef4444;         /* Light red focus outline */
+  
+  /* Additional Red Accent Colors */
+  --accent-red-bright: #f87171;   /* Bright red for call-to-action buttons */
+  --accent-red-dark: #b91c1c;     /* Dark red for important accents */
+  --accent-red-subtle: #fca5a5;   /* Subtle red for light accents */
 }
 
 /* 
@@ -105,4 +110,15 @@ PROFESSIONAL GRAY SCHEME:
   --primary-dark: #1f2937;
   --bg-gradient-start: #6b7280;
   --bg-gradient-end: #374151;
+*/
+
+/* 
+RED ACCENT SCHEME (Currently Active):
+  --primary-color: #ef4444;
+  --primary-dark: #dc2626;
+  --primary-light: #f87171;
+  --focus-color: #ef4444;
+  --accent-red-bright: #f87171;
+  --accent-red-dark: #b91c1c;
+  --accent-red-subtle: #fca5a5;
 */
