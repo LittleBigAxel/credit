@@ -1,7 +1,11 @@
 import React from 'react';
+import { useTranslation } from '../hooks/useTranslation';
+import TranslatedText from '../components/TranslatedText';
 import './Home.css';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="home">
       {/* Welcome Section */}
@@ -9,14 +13,14 @@ const Home = () => {
         <div className="hero-container">
           <div className="hero-content">
             <h1 className="hero-title">
-              Repair Your Credit, Rebuild Your Future
+              <TranslatedText>{t('heroTitle')}</TranslatedText>
             </h1>
             <p className="hero-subtitle">
-              Professional credit repair services to help you achieve your financial goals
+              <TranslatedText>{t('heroSubtitle')}</TranslatedText>
             </p>
             <div className="hero-buttons">
               <a href="/contact" className="btn btn-primary">
-                Free Consultation
+                <TranslatedText>{t('freeConsultation')}</TranslatedText>
               </a>
               <a 
                 href="https://www.identityiq.com" 
@@ -24,7 +28,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
               >
-                Go to IdentityIQ
+                <TranslatedText>{t('goToIdentityIQ')}</TranslatedText>
               </a>
             </div>
           </div>
@@ -37,31 +41,31 @@ const Home = () => {
       {/* Benefits Section */}
       <section className="benefits">
         <div className="container">
-          <h2>How We Can Help You</h2>
+          <h2><TranslatedText>{t('howWeCanHelp')}</TranslatedText></h2>
           <div className="benefits-grid">
             <div className="benefit-item">
-              <h3>Improve Credit Score</h3>
-              <p>Increase your credit score through proven strategies and dispute processes</p>
+              <h3><TranslatedText>{t('improveCreditScore')}</TranslatedText></h3>
+              <p><TranslatedText>{t('improveCreditScoreDesc')}</TranslatedText></p>
             </div>
             <div className="benefit-item">
-              <h3>Remove Negative Accounts</h3>
-              <p>Challenge and remove inaccurate, outdated, or unverifiable negative items</p>
+              <h3><TranslatedText>{t('removeNegativeAccounts')}</TranslatedText></h3>
+              <p><TranslatedText>{t('removeNegativeAccountsDesc')}</TranslatedText></p>
             </div>
             <div className="benefit-item">
-              <h3>Financial Education</h3>
-              <p>Learn how to maintain good credit and make smart financial decisions</p>
+              <h3><TranslatedText>{t('financialEducation')}</TranslatedText></h3>
+              <p><TranslatedText>{t('financialEducationDesc')}</TranslatedText></p>
             </div>
             <div className="benefit-item">
-              <h3>Personalized Service</h3>
-              <p>Get customized credit repair strategies tailored to your unique situation</p>
+              <h3><TranslatedText>{t('personalizedService')}</TranslatedText></h3>
+              <p><TranslatedText>{t('personalizedServiceDesc')}</TranslatedText></p>
             </div>
             <div className="benefit-item">
-              <h3>Fast Results</h3>
-              <p>See improvements in your credit report within 30-45 days</p>
+              <h3><TranslatedText>{t('fastResults')}</TranslatedText></h3>
+              <p><TranslatedText>{t('fastResultsDesc')}</TranslatedText></p>
             </div>
             <div className="benefit-item">
-              <h3>Expert Support</h3>
-              <p>Professional guidance throughout your entire credit repair journey</p>
+              <h3><TranslatedText>{t('expertSupport')}</TranslatedText></h3>
+              <p><TranslatedText>{t('expertSupportDesc')}</TranslatedText></p>
             </div>
           </div>
         </div>

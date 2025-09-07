@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { useTranslation } from '../hooks/useTranslation';
 import "./Contact.css";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,16 +49,16 @@ const Contact = () => {
     <div className="contact">
       <div className="container">
         <section className="contact-hero">
-          <h1>Contact Me</h1>
-          <p>Ready to start your credit repair journey? Get in touch today!</p>
+          <h1>{t('contactMe')}</h1>
+          <p>{t('contactSubtitle')}</p>
         </section>
 
         <div className="contact-content">
           <div className="contact-form-section">
-            <h2>Send Me a Message</h2>
+            <h2>{t('sendMeMessage')}</h2>
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Full Name *</label>
+                <label htmlFor="name">{t('fullName')} *</label>
                 <input
                   type="text"
                   id="name"
@@ -68,7 +70,7 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address *</label>
+                <label htmlFor="email">{t('emailAddress')} *</label>
                 <input
                   type="email"
                   id="email"
@@ -80,7 +82,7 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="phone">Phone Number</label>
+                <label htmlFor="phone">{t('phoneNumber')}</label>
                 <input
                   type="tel"
                   id="phone"
@@ -91,14 +93,14 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message *</label>
+                <label htmlFor="message">{t('message')} *</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="5"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your credit situation and how I can help..."
+                  placeholder={t('messagePlaceholder')}
                   required></textarea>
               </div>
 
@@ -106,44 +108,42 @@ const Contact = () => {
                 type="submit"
                 className="btn btn-primary"
                 disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? t('sending') : t('sendMessage')}
               </button>
 
               {submitStatus === "success" && (
                 <p className="form-message success">
-                  Message sent successfully! I'll get back to you within 24
-                  hours.
+                  {t('messageSentSuccess')}
                 </p>
               )}
 
               {submitStatus === "error" && (
                 <p className="form-message error">
-                  There was an error sending your message. Please try again or
-                  contact me directly.
+                  {t('messageError')}
                 </p>
               )}
             </form>
           </div>
 
           <div className="contact-info-section">
-            <h2>Get In Touch</h2>
+            <h2>{t('getInTouch')}</h2>
 
             <div className="contact-methods">
               <div className="contact-method">
                 <h3>WhatsApp</h3>
-                <p>For quick questions and consultations</p>
+                <p>{t('whatsappQuick')}</p>
                 <a
                   href="https://wa.me/13479255033"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary">
-                  Message on WhatsApp
+                  {t('messageOnWhatsapp')}
                 </a>
               </div>
 
               <div className="contact-method">
                 <h3>Email</h3>
-                <p>For detailed inquiries</p>
+                <p>{t('emailDetailed')}</p>
                 <a
                   href="mailto:contact@creditrepair.com"
                   className="contact-link">
@@ -152,26 +152,26 @@ const Contact = () => {
               </div>
 
               <div className="contact-method">
-                <h3>Social Media</h3>
-                <p>Follow me for credit tips and updates</p>
+                <h3>{t('socialMedia')}</h3>
+                <p>{t('socialMediaFollow')}</p>
                 <div className="social-links">
                   <a
                     href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer">
-                    Facebook
+                    {t('facebook')}
                   </a>
                   <a
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer">
-                    Instagram
+                    {t('instagram')}
                   </a>
                   <a
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer">
-                    LinkedIn
+                    {t('linkedin')}
                   </a>
                 </div>
               </div>
@@ -180,8 +180,8 @@ const Contact = () => {
         </div>
 
         <section className="map-section">
-          <h2>Service Area</h2>
-          <p>Providing credit repair services nationwide</p>
+          <h2>{t('serviceArea')}</h2>
+          <p>{t('serviceAreaText')}</p>
         </section>
       </div>
     </div>

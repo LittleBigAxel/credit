@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from '../hooks/useTranslation';
 import './FAQ.css';
 
 const FAQ = () => {
+  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
 
   const toggleFaq = (index) => {
@@ -10,28 +12,28 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "How long does credit repair take?",
-      answer: "Credit repair timelines vary depending on your specific situation. Most clients see initial results within 30-45 days, with significant improvements typically occurring within 3-6 months. Complex cases may take longer, but we'll provide you with realistic expectations during your consultation."
+      question: t('faq1Question'),
+      answer: t('faq1Answer')
     },
     {
-      question: "Can you guarantee specific results?",
-      answer: "While we cannot guarantee specific score increases (as this would be illegal), we have a 95% success rate in helping clients improve their credit. We use proven strategies and will work diligently to achieve the best possible results for your situation."
+      question: t('faq2Question'),
+      answer: t('faq2Answer')
     },
     {
-      question: "How much does credit repair cost?",
-      answer: "Our pricing varies based on the services you need. We offer transparent pricing with no hidden fees. Contact us for a free consultation where we'll assess your situation and provide a customized quote. We also offer payment plans to make our services accessible."
+      question: t('faq3Question'),
+      answer: t('faq3Answer')
     },
     {
-      question: "Is credit repair legal?",
-      answer: "Yes, credit repair is completely legal. The Fair Credit Reporting Act (FCRA) gives you the right to dispute inaccurate, outdated, or unverifiable information on your credit reports. We simply help you exercise these rights more effectively."
+      question: t('faq4Question'),
+      answer: t('faq4Answer')
     },
     {
-      question: "What's the difference between credit repair and credit counseling?",
-      answer: "Credit repair focuses on removing negative items from your credit report, while credit counseling typically involves debt management and financial education. We offer both services - we can help clean up your credit report AND provide guidance on maintaining good credit going forward."
+      question: t('faq5Question'),
+      answer: t('faq5Answer')
     },
     {
-      question: "Can I repair my credit myself?",
-      answer: "Yes, you can dispute items on your credit report yourself. However, professional credit repair services have experience with effective dispute strategies, know how to communicate with bureaus and creditors, and can save you significant time and effort while often achieving better results."
+      question: t('faq6Question'),
+      answer: t('faq6Answer')
     }
   ];
 
@@ -39,8 +41,8 @@ const FAQ = () => {
     <div className="faq">
       <div className="container">
         <section className="faq-hero">
-          <h1>Frequently Asked Questions</h1>
-          <p>Get answers to common questions about credit repair</p>
+          <h1>{t('frequentlyAskedQuestions')}</h1>
+          <p>{t('faqSubtitle')}</p>
         </section>
 
         <section className="faq-content">
@@ -63,21 +65,19 @@ const FAQ = () => {
 
         <section className="identityiq-section">
           <div className="identityiq-content">
-            <h2>Credit Monitoring with IdentityIQ</h2>
+            <h2>{t('creditMonitoringWithIdentityIQ')}</h2>
             <p>
-              In addition to our credit repair services, we recommend IdentityIQ for ongoing 
-              credit monitoring and identity protection. IdentityIQ provides:
+              {t('identityIQDescription')}
             </p>
             <ul>
-              <li>Real-time credit monitoring from all three bureaus</li>
-              <li>Identity theft protection and alerts</li>
-              <li>Credit score tracking and updates</li>
-              <li>Dark web monitoring for your personal information</li>
-              <li>$1 million identity theft insurance</li>
+              <li>{t('realTimeMonitoring')}</li>
+              <li>{t('identityTheftProtection')}</li>
+              <li>{t('creditScoreTracking')}</li>
+              <li>{t('darkWebMonitoring')}</li>
+              <li>{t('identityTheftInsurance')}</li>
             </ul>
             <p>
-              IdentityIQ is an excellent complement to our credit repair services, helping you 
-              maintain and protect your improved credit once we've helped you achieve your goals.
+              {t('identityIQComplement')}
             </p>
             <a 
               href="https://www.identityiq.com" 
@@ -85,27 +85,25 @@ const FAQ = () => {
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Learn More About IdentityIQ
+              {t('learnMoreAboutIdentityIQ')}
             </a>
           </div>
         </section>
 
         <section className="additional-info">
-          <h2>Still Have Questions?</h2>
+          <h2>{t('stillHaveQuestions')}</h2>
           <p>
-            Don't see your question answered here? We're here to help! Contact us for a free 
-            consultation where we can discuss your specific situation and answer any questions 
-            you may have about the credit repair process.
+            {t('additionalInfoText')}
           </p>
           <div className="contact-buttons">
-            <a href="/contact" className="btn btn-primary">Free Consultation</a>
+            <a href="/contact" className="btn btn-primary">{t('freeConsultation')}</a>
             <a 
               href="https://wa.me/1234567890" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-secondary"
             >
-              WhatsApp Us
+              {t('whatsappUs')}
             </a>
           </div>
         </section>

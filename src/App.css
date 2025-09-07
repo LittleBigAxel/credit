@@ -9,6 +9,19 @@ main {
   flex: 1;
 }
 
+/* Language Transition Styles */
+.translated-text {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.translated-text.fade-out {
+  opacity: 0;
+}
+
+.translated-text.fade-in {
+  opacity: 1;
+}
+
 /* Global Container */
 .container {
   max-width: 1200px;
