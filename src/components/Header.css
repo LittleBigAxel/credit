@@ -6,6 +6,7 @@
   z-index: 1000;
 }
 
+
 .nav {
   padding: 0;
 }
@@ -93,6 +94,39 @@
 .language-toggle:active {
   transform: translateY(0);
 }
+
+/* Remove mobile tap highlight */
+.nav-link,
+.language-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Kill default outline on mouse/touch */
+.nav-link:focus,
+.language-toggle:focus,
+.nav-link:active,
+.language-toggle:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* Optional: keep a subtle ring ONLY for keyboard users
+   (Set to 'none' if you want zero ring) */
+.nav-link:focus-visible,
+.language-toggle:focus-visible {
+  outline: none;
+  /* change to a brand ring if desired */
+  box-shadow: none;
+  /* e.g., 0 0 0 3px rgba(59,130,246,.35) */
+}
+
+/* Firefox inner focus fix for buttons */
+.language-toggle::-moz-focus-inner {
+  border: 0;
+}
+
+
 
 @media (max-width: 768px) {
   .nav-container {

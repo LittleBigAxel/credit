@@ -1,6 +1,7 @@
 import { useTranslation } from "../hooks/useTranslation";
 import TranslatedText from "../components/TranslatedText";
 import res1 from "../results/resultado-1.jpeg";
+import res2 from "../results/resultado-2.jpeg";
 import homeImage from "../results/credit-written-scrabble-letters-bank-notes.jpg";
 
 import "./Home.css";
@@ -9,28 +10,35 @@ import "./Home.css";
 const ResultsSection = ({ items = [] }) => {
   const { t } = useTranslation();
 
+  // Data with bureaus split out; we'll render description in EQ • TU • EX order
   const sample = [
     {
       img: res1,
       title: "Yahindry T.",
-      description: "+63 EQ • 22 negatives removed",
-      badge: "+63 EQ",
+      bureaus: { EQ: 69, TU: 75, EX: 111 },
+      removed: 9,
     },
     {
-      img: "/results/sample2.jpg",
+      img: res2,
       title: "Stephanie R.",
-      description: "+112 pts • 18 negatives removed",
-      badge: "+112 pts",
-    },
-    {
-      img: "/results/sample3.jpg",
-      title: "Luis M.",
-      description: "+92 pts • 14 negatives removed",
-      badge: "+92 pts",
+      bureaus: { EQ: 76, TU: 21, EX: 102 },
+      removed: 2,
     },
   ];
 
+  // Prefer props.items if provided, else local sample
   const data = items.length ? items : sample;
+
+  // Format to a single description line (EQ • TU • EX) + removed
+  const fmtDesc = (b = {}, removed) => {
+    const order = ["EQ", "TU", "EX"];
+    const parts = order
+      .filter((k) => typeof b[k] === "number")
+      .map((k) => `+${b[k]} ${k}`);
+    const tail =
+      typeof removed === "number" ? ` • ${removed} negatives removed` : "";
+    return `${parts.join(" • ")}${tail}`;
+  };
 
   return (
     <section className="results" id="results">
@@ -54,11 +62,13 @@ const ResultsSection = ({ items = [] }) => {
                   loading="lazy"
                   decoding="async"
                 />
-                {it.badge && <span className="badge">{it.badge}</span>}
               </div>
               <div className="result-body">
                 {it.title && <h3>{it.title}</h3>}
-                {it.description && <p>{it.description}</p>}
+                <p>
+                  {it.description ??
+                    (it.bureaus ? fmtDesc(it.bureaus, it.removed) : "")}
+                </p>
               </div>
             </article>
           ))}
@@ -73,23 +83,20 @@ const TestimonialsSection = ({ reviews = [] }) => {
 
   const sample = [
     {
-      name: "Jordania J.",
+      name: "Julissa Rodriguez",
       time: "3 weeks ago",
-      avatar: "/avatars/a1.jpg",
       rating: 5,
       text: "Me eliminaron 12 cuentas y subí más de 90 puntos en 2 meses.",
     },
     {
       name: "Luis M.",
       time: "1 month ago",
-      avatar: "/avatars/a2.jpg",
       rating: 5,
       text: "De negado a aprobado. Proceso claro y rápido, 100% recomendado.",
     },
     {
       name: "Stephanie R.",
       time: "2 months ago",
-      avatar: "/avatars/a3.jpg",
       rating: 5,
       text: "Excelente comunicación y resultados reales.",
     },
@@ -115,17 +122,7 @@ const TestimonialsSection = ({ reviews = [] }) => {
         <div className="reviews-grid">
           {data.map((r, idx) => (
             <article key={idx} className="review-card">
-              <div className="review-header">
-                {r.avatar ? (
-                  <img
-                    className="avatar"
-                    src={res1}
-                    alt={`${r.name} avatar`}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="avatar" style={{ background: "#eef2ff" }} />
-                )}
+              <div className="review-header no-avatar">
                 <div className="meta">
                   <strong className="author">{r.name}</strong>
                   {r.time && <span className="time">{r.time}</span>}

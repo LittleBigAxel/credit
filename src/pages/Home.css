@@ -165,7 +165,7 @@
   }
 }
 
-/* NEW: Results Section */
+/* --- RESULTS (uniform images) --- */
 .results {
   padding: 80px 0;
   background: var(--bg-primary);
@@ -206,16 +206,26 @@
   box-shadow: 0 12px 28px var(--shadow-medium);
 }
 
+/* 👇 Uniform portrait frame — change ratio if you like */
 .result-img-wrap {
   position: relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 1 / 5;
+  /* was 16/10 + 1/1 on mobile */
   overflow: hidden;
+  background: #0f1220;
 }
+
+.result-img-wrap {
+  aspect-ratio: 4 / 5;
+}
+
 
 .result-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* fills frame, crops overflow */
+  object-position: center;
   display: block;
 }
 
@@ -248,7 +258,7 @@
   line-height: 1.55;
 }
 
-/* NEW: Testimonials Section (Google Reviews) */
+/* --- TESTIMONIALS (no avatars) --- */
 .testimonials {
   padding: 80px 0;
   background: var(--bg-secondary);
@@ -273,14 +283,13 @@
 .review-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  /* tighter since avatar is hidden */
 }
 
+/* Hide avatars entirely (CSS-only removal) */
 .avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
+  display: none !important;
 }
 
 .meta {
@@ -312,7 +321,7 @@
   text-align: center;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr;
@@ -339,23 +348,4 @@
   .benefits h2 {
     font-size: 2rem;
   }
-
-  /* Antes tenías 16/10 */
-  .result-img-wrap {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    /* ⬅️ cuadrado consistente */
-    overflow: hidden;
-    background: #0b1220;
-    /* fondo por si hay bordes con contain */
-  }
-
-  .result-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* ⬅️ llena el cuadrado recortando lo que sobra */
-    display: block;
-  }
-
 }

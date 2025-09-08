@@ -85,3 +85,40 @@ main {
 .mt-30 {
   margin-top: 30px;
 }
+
+/* --- Nav focus/active cleanup --- */
+.nav-link,
+.language-toggle {
+  -webkit-tap-highlight-color: transparent;
+  /* kill mobile red tap box */
+  outline: none;
+}
+
+.nav-link:focus,
+.nav-link:active,
+.nav-link:focus-visible,
+.language-toggle:focus,
+.language-toggle:active,
+.language-toggle:focus-visible,
+.nav-item:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* If you're using React Router <NavLink>, its .active might add a border */
+.nav-link.active {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Optional: keep a subtle, branded focus only for keyboard users */
+.nav-link:focus-visible,
+.language-toggle:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
+  /* transparent = effectively none */
+  /* Or swap to a nice ring instead:
+  box-shadow: 0 0 0 3px rgba(59,130,246,.35);
+  outline: none;
+  */
+}

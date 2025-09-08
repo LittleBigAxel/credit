@@ -50,3 +50,22 @@
     text-align: center;
   }
 }
+
+/* Footer links: no red box on tap/click */
+.footer .footer-links a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer .footer-links a:focus,
+.footer .footer-links a:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* Optional keyboard-only ring */
+.footer .footer-links a:focus-visible {
+  outline: none;
+  /* or your custom ring */
+  box-shadow: none;
+}
