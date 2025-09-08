@@ -339,4 +339,23 @@
   .benefits h2 {
     font-size: 2rem;
   }
+
+  /* Antes tenías 16/10 */
+  .result-img-wrap {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    /* ⬅️ cuadrado consistente */
+    overflow: hidden;
+    background: #0b1220;
+    /* fondo por si hay bordes con contain */
+  }
+
+  .result-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ⬅️ llena el cuadrado recortando lo que sobra */
+    display: block;
+  }
+
 }

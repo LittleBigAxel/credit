@@ -1,12 +1,149 @@
-import React, { useEffect, useState } from "react";
 import { useTranslation } from "../hooks/useTranslation";
 import TranslatedText from "../components/TranslatedText";
+import res1 from "../results/resultado-1.jpeg";
+import homeImage from "../results/credit-written-scrabble-letters-bank-notes.jpg";
+
 import "./Home.css";
 
-const GOOGLE_PLACE_ID = "YOUR_GOOGLE_PLACE_ID_HERE"; // <-- cámbialo
-const GOOGLE_API_KEY = "YOUR_GOOGLE_API_KEY_HERE"; // <-- cámbialo
+/* Inline helpers (no separate files) */
+const ResultsSection = ({ items = [] }) => {
+  const { t } = useTranslation();
+
+  const sample = [
+    {
+      img: res1,
+      title: "Yahindry T.",
+      description: "+63 EQ • 22 negatives removed",
+      badge: "+63 EQ",
+    },
+    {
+      img: "/results/sample2.jpg",
+      title: "Stephanie R.",
+      description: "+112 pts • 18 negatives removed",
+      badge: "+112 pts",
+    },
+    {
+      img: "/results/sample3.jpg",
+      title: "Luis M.",
+      description: "+92 pts • 14 negatives removed",
+      badge: "+92 pts",
+    },
+  ];
+
+  const data = items.length ? items : sample;
+
+  return (
+    <section className="results" id="results">
+      <div className="container">
+        <div className="section-head">
+          <h2>
+            <TranslatedText>{t("resultsTitle")}</TranslatedText>
+          </h2>
+          <p>
+            <TranslatedText>{t("resultsSubtitle")}</TranslatedText>
+          </p>
+        </div>
+
+        <div className="results-grid">
+          {data.map((it, idx) => (
+            <article key={idx} className="result-card">
+              <div className="result-img-wrap">
+                <img
+                  src={it.img}
+                  alt={it.title || "Result"}
+                  loading="lazy"
+                  decoding="async"
+                />
+                {it.badge && <span className="badge">{it.badge}</span>}
+              </div>
+              <div className="result-body">
+                {it.title && <h3>{it.title}</h3>}
+                {it.description && <p>{it.description}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const TestimonialsSection = ({ reviews = [] }) => {
+  const { t } = useTranslation();
+
+  const sample = [
+    {
+      name: "Jordania J.",
+      time: "3 weeks ago",
+      avatar: "/avatars/a1.jpg",
+      rating: 5,
+      text: "Me eliminaron 12 cuentas y subí más de 90 puntos en 2 meses.",
+    },
+    {
+      name: "Luis M.",
+      time: "1 month ago",
+      avatar: "/avatars/a2.jpg",
+      rating: 5,
+      text: "De negado a aprobado. Proceso claro y rápido, 100% recomendado.",
+    },
+    {
+      name: "Stephanie R.",
+      time: "2 months ago",
+      avatar: "/avatars/a3.jpg",
+      rating: 5,
+      text: "Excelente comunicación y resultados reales.",
+    },
+  ];
+
+  const data = reviews.length ? reviews : sample;
+
+  const Stars = ({ value = 5 }) => (
+    <div className="stars" aria-label={`${value} out of 5 stars`}>
+      {"★★★★★".slice(0, Math.max(0, Math.min(5, value)))}
+    </div>
+  );
+
+  return (
+    <section className="testimonials" id="testimonials">
+      <div className="container">
+        <div className="section-head">
+          <h2>
+            <TranslatedText>{t("testimonialsTitle")}</TranslatedText>
+          </h2>
+        </div>
+
+        <div className="reviews-grid">
+          {data.map((r, idx) => (
+            <article key={idx} className="review-card">
+              <div className="review-header">
+                {r.avatar ? (
+                  <img
+                    className="avatar"
+                    src={res1}
+                    alt={`${r.name} avatar`}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="avatar" style={{ background: "#eef2ff" }} />
+                )}
+                <div className="meta">
+                  <strong className="author">{r.name}</strong>
+                  {r.time && <span className="time">{r.time}</span>}
+                  <Stars value={r.rating || 5} />
+                </div>
+              </div>
+              {r.text && <p className="review-text">“{r.text}”</p>}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="home">
       {/* Welcome Section */}
@@ -24,7 +161,7 @@ const Home = () => {
                 <TranslatedText>{t("freeConsultation")}</TranslatedText>
               </a>
               <a
-                href="https://member.myscoreiq.com/get-fico-max.aspx?offercode=4321400U"
+                href="https://www.identityiq.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary">
@@ -33,7 +170,7 @@ const Home = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/api/placeholder/500/400" alt="Credit Repair Success" />
+            <img src={homeImage} alt="Credit Repair Success" />
           </div>
         </div>
       </section>
@@ -64,17 +201,19 @@ const Home = () => {
               </p>
             </div>
             <div className="benefit-item">
-              <h3>Financial Education</h3>
+              <h3>
+                <TranslatedText>{t("financialEducation")}</TranslatedText>
+              </h3>
               <p>
-                Learn how to maintain good credit and make smart financial
-                decisions
+                <TranslatedText>{t("financialEducationDesc")}</TranslatedText>
               </p>
             </div>
             <div className="benefit-item">
-              <h3>Personalized Service</h3>
+              <h3>
+                <TranslatedText>{t("personalizedService")}</TranslatedText>
+              </h3>
               <p>
-                Get customized credit repair strategies tailored to your unique
-                situation
+                <TranslatedText>{t("personalizedServiceDesc")}</TranslatedText>
               </p>
             </div>
             <div className="benefit-item">
@@ -86,120 +225,20 @@ const Home = () => {
               </p>
             </div>
             <div className="benefit-item">
-              <h3>Expert Support</h3>
+              <h3>
+                <TranslatedText>{t("expertSupport")}</TranslatedText>
+              </h3>
               <p>
-                Professional guidance throughout your entire credit repair
-                journey
+                <TranslatedText>{t("expertSupportDesc")}</TranslatedText>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* NEW: Results Section */}
-      <section className="results">
-        <div className="container">
-          <div className="section-head">
-            <h2>Real Client Results</h2>
-            <p>Before / After & screenshots de mejoras reales</p>
-          </div>
-
-          <div className="results-grid">
-            {/* Cards de ejemplo: reemplaza las src por tus imágenes reales */}
-            <article className="result-card">
-              <div className="result-img-wrap">
-                <img
-                  src="/api/placeholder/420/260"
-                  alt="Before & After - Collections removed"
-                />
-                <span className="badge">+92 pts</span>
-              </div>
-              <div className="result-body">
-                <h3>Collections Removed</h3>
-                <p>2 colecciones eliminadas en 45 días.</p>
-              </div>
-            </article>
-
-            <article className="result-card">
-              <div className="result-img-wrap">
-                <img
-                  src="/api/placeholder/420/260"
-                  alt="Late payments updated"
-                />
-                <span className="badge">Updated to Positive</span>
-              </div>
-              <div className="result-body">
-                <h3>Late Payments Fixed</h3>
-                <p>Pagos tardes corregidos en cuentas abiertas.</p>
-              </div>
-            </article>
-
-            <article className="result-card">
-              <div className="result-img-wrap">
-                <img
-                  src="/api/placeholder/420/260"
-                  alt="Score increase proof"
-                />
-                <span className="badge">+120 pts</span>
-              </div>
-              <div className="result-body">
-                <h3>Score Increase</h3>
-                <p>Subida de 120 puntos tras eliminar errores.</p>
-              </div>
-            </article>
-
-            {/* Agrega más <article> según necesites */}
-          </div>
-        </div>
-      </section>
-
-      {/* NEW: Google Reviews Section */}
-      <section className="testimonials">
-        <div className="container">
-          <div className="section-head">
-            <h2>What Clients Say on Google</h2>
-            <p>Testimonios verificados directamente desde Google</p>
-          </div>
-
-          <div className="reviews-grid">
-            {dataReviews.map((r, idx) => (
-              <article className="review-card" key={idx}>
-                <div className="review-header">
-                  <img
-                    src={r.profile_photo_url || "/api/placeholder/48/48"}
-                    alt={r.author_name}
-                    className="avatar"
-                    loading="lazy"
-                  />
-                  <div className="meta">
-                    <strong className="author">{r.author_name}</strong>
-                    <span className="time">
-                      {r.relative_time_description || ""}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="stars" aria-label={`${r.rating} out of 5`}>
-                  {"★".repeat(Math.round(r.rating || 5))}
-                  {"☆".repeat(5 - Math.round(r.rating || 5))}
-                </div>
-
-                <p className="review-text">{r.text}</p>
-              </article>
-            ))}
-          </div>
-
-          {/* CTA opcional */}
-          <div className="reviews-cta">
-            <a
-              className="btn btn-primary"
-              href="/contact"
-              aria-label="Book a free consultation">
-              Book a Free Consultation
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Results + Testimonials inside Home */}
+      <ResultsSection />
+      <TestimonialsSection />
     </div>
   );
 };
