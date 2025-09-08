@@ -15,12 +15,12 @@ const Footer = () => {
           </h3>
           <div className="footer-links">
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/13479255033"
               target="_blank"
               rel="noopener noreferrer">
               WhatsApp
             </a>
-            <a href="mailto:contact@creditrepair.com">Email</a>
+            <a href="mailto:jlnolimitinfo@gmail.com">Email</a>
           </div>
         </div>
 
@@ -36,16 +36,10 @@ const Footer = () => {
               <TranslatedText>{t("facebook")}</TranslatedText>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/jl.nolimit/"
               target="_blank"
               rel="noopener noreferrer">
               <TranslatedText>{t("instagram")}</TranslatedText>
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer">
-              <TranslatedText>{t("linkedin")}</TranslatedText>
             </a>
           </div>
         </div>
@@ -55,11 +49,8 @@ const Footer = () => {
             <TranslatedText>{t("legal")}</TranslatedText>
           </h3>
           <div className="footer-links">
-            <a href="/privacy">
+            <a href="/privatepolicy">
               <TranslatedText>{t("privacyPolicy")}</TranslatedText>
-            </a>
-            <a href="/terms">
-              <TranslatedText>{t("termsOfService")}</TranslatedText>
             </a>
           </div>
         </div>
@@ -67,7 +58,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>
-          &copy; 2024 Credit Repair Pro.{" "}
+          &copy; {new Date().getFullYear()} JL No Limit — Jorge Lopez.{" "}
           <TranslatedText>{t("allRightsReserved")}</TranslatedText>.
         </p>
       </div>

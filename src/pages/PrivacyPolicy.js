@@ -1,19 +1,24 @@
 import "./PrivatePolicy.css";
 
+const COMPANY_NAME = "JL No Limit";
+const OWNER_NAME = "Jorge Lopez";
+const CONTACT_EMAIL = "jlnolimitinfo@gmail.com";
+const LAST_UPDATED = "September 2025";
+
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy">
       <div className="container">
         <h1>Privacy Policy</h1>
-        <p>Last Updated: September 2025</p>
+        <p>Last Updated: {LAST_UPDATED}</p>
 
         <section>
           <h2>1. Introduction</h2>
           <p>
-            Frozen Solutions Enterprise LLC ("Company", "we", "our", or "us") is
-            committed to protecting your privacy. This Privacy Policy explains
-            how we collect, use, disclose, and safeguard your information when
-            you visit our website or use our credit repair services.
+            {COMPANY_NAME} (“{COMPANY_NAME}”, “we”, “our”, or “us”) is committed
+            to protecting your privacy. This Privacy Policy explains how we
+            collect, use, disclose, and safeguard your information when you
+            visit our website or use our credit repair and advisory services.
           </p>
         </section>
 
@@ -22,17 +27,22 @@ const PrivacyPolicy = () => {
           <p>We may collect the following types of information:</p>
           <ul>
             <li>
-              <strong>Personal Information:</strong> such as your name, email
-              address, phone number, mailing address, and payment details.
+              <strong>Personal Information:</strong> your name, email address,
+              phone number, and mailing address.
             </li>
             <li>
               <strong>Credit Information:</strong> credit reports, account
-              numbers, or other documents you provide to assist with credit
-              repair.
+              numbers, dispute documents, or other information you provide to
+              assist with credit improvement.
             </li>
             <li>
-              <strong>Usage Data:</strong> information about how you use our
-              website, including IP address, browser type, and pages visited.
+              <strong>Payment Information:</strong> if you purchase services,
+              limited payment details processed securely by our payment
+              providers.
+            </li>
+            <li>
+              <strong>Usage Data:</strong> IP address, device/browser type,
+              pages visited, and referral sources to help us improve the site.
             </li>
           </ul>
         </section>
@@ -41,28 +51,28 @@ const PrivacyPolicy = () => {
           <h2>3. How We Use Your Information</h2>
           <p>We use your information to:</p>
           <ul>
-            <li>Provide and improve our credit repair services.</li>
+            <li>Provide, personalize, and improve our services.</li>
             <li>Communicate with you about updates, results, and offers.</li>
+            <li>Process payments and manage billing.</li>
             <li>Comply with legal and regulatory requirements.</li>
-            <li>Process payments securely.</li>
           </ul>
         </section>
 
         <section>
           <h2>4. Sharing of Information</h2>
           <p>
-            We do not sell or rent your personal information. We may share your
-            information only with:
+            We do not sell or rent your personal information. We may share it
+            with:
           </p>
           <ul>
             <li>Credit bureaus and creditors for dispute processing.</li>
             <li>
-              Third-party service providers who help us operate our business
-              (e.g., payment processors, email providers).
+              Service providers who assist our operations (e.g., payment
+              processors, email/SMS providers, hosting/analytics).
             </li>
             <li>
               Government or legal authorities when required by law or to protect
-              our rights.
+              our rights or users.
             </li>
           </ul>
         </section>
@@ -70,44 +80,50 @@ const PrivacyPolicy = () => {
         <section>
           <h2>5. Data Security</h2>
           <p>
-            We use industry-standard security measures to protect your
-            information. However, please note that no system is completely
-            secure, and we cannot guarantee absolute protection.
+            We use industry-standard administrative, technical, and physical
+            safeguards to protect your information. However, no method of
+            transmission or storage is 100% secure.
           </p>
         </section>
 
         <section>
           <h2>6. Your Rights</h2>
-          <p>You have the right to:</p>
+          <p>You may have the right to:</p>
           <ul>
             <li>Access, correct, or delete your personal information.</li>
             <li>Request a copy of the data we hold about you.</li>
-            <li>Opt-out of marketing communications at any time.</li>
+            <li>Opt out of marketing communications at any time.</li>
           </ul>
+          <p>
+            To make a request, contact us at{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          </p>
         </section>
 
         <section>
           <h2>7. Cookies & Tracking</h2>
           <p>
-            Our website may use cookies to improve your experience and analyze
-            traffic. You can disable cookies in your browser settings, but some
-            features may not work properly.
+            We may use cookies and similar technologies to operate the site,
+            remember preferences, and analyze traffic. You can control cookies
+            through your browser settings; some features may not function
+            properly if cookies are disabled.
           </p>
         </section>
 
         <section>
           <h2>8. Third-Party Links</h2>
           <p>
-            Our site may contain links to external websites (such as MyScoreIQ
-            or IdentityIQ). We are not responsible for the privacy practices or
-            content of those websites.
+            Our site may link to external websites (e.g., MyScoreIQ,
+            IdentityIQ). We are not responsible for their privacy practices or
+            content. Review their policies before providing personal
+            information.
           </p>
         </section>
 
         <section>
           <h2>9. Children’s Privacy</h2>
           <p>
-            Our services are not intended for children under 18. We do not
+            Our services are not intended for individuals under 18. We do not
             knowingly collect information from minors.
           </p>
         </section>
@@ -115,22 +131,30 @@ const PrivacyPolicy = () => {
         <section>
           <h2>10. Changes to This Policy</h2>
           <p>
-            We may update this Privacy Policy from time to time. Any changes
-            will be posted on this page with a revised “Last Updated” date.
+            We may update this Privacy Policy periodically. Changes will be
+            posted on this page with a revised “Last Updated” date.
           </p>
         </section>
 
         <section>
           <h2>11. Contact Us</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact
-            us at:
+            Questions about this Privacy Policy? Contact{" "}
+            <strong>{COMPANY_NAME}</strong> ({OWNER_NAME}) at:
           </p>
           <p>
-            <strong>Email:</strong> frozen@frozensolutionsenterprise.com
-            <br />
-            <strong>Phone:</strong> (844) 463-9781
+            <strong>Email:</strong>{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
+        </section>
+
+        <section>
+          <small style={{ color: "var(--text-secondary)" }}>
+            This Privacy Policy is provided for general informational purposes
+            and does not constitute legal advice. Consider consulting an
+            attorney to ensure compliance with applicable laws (e.g., CCPA/GDPR)
+            based on your business practices and location.
+          </small>
         </section>
       </div>
     </div>
